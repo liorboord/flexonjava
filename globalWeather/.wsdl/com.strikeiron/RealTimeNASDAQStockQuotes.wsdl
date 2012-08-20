@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:q1="http://ws.strikeiron.com" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://www.strikeiron.com/AbstractTypes" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://www.strikeiron.com" targetNamespace="http://www.strikeiron.com">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.strikeiron.com">
+      <s:element name="GetStockQuote">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="SingleTicker" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStockQuoteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="GetStockQuoteResult" type="tns:StockQuoteOutput"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="StockQuoteOutput">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SIWsOutput">
+            <s:sequence>
+              <s:element maxOccurs="1" minOccurs="0" name="ServiceResult" type="tns:StockQuoteRecord"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SIWsOutput">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="0" name="ServiceStatus" type="tns:SIWsStatus"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SIWsStatus">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="StatusNbr" type="s:int"/>
+          <s:element maxOccurs="1" minOccurs="0" name="StatusDescription" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StockQuoteRecord">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="0" name="TickerSymbol" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="CompanyName" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="StockExchange" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Status" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="StockQuote" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="LastUpdated" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="TradeVolume" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="DayLowPrice" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="DayHighPrice" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="DayVolume" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="PreviousTradePrice" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="ChangeFromPreviousTradePrice" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="PercentChangeFromPreviousTradePrice" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="OpenPrice" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="ChangeFromOpenPrice" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="PercentChangeFromOpenPrice" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="PreviousDayClosePrice" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="ChangeFromPreviousDayClosePrice" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="PercentChangeFromPreviousDayClosePrice" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="BidPrice" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="BidSize" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="AskPrice" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="AskSize" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Spread" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="YearLowPrice" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="YearHighPrice" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Trailing3MonthAvgVolume" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStockQuotes">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="Tickers" type="tns:ArrayOfString"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element maxOccurs="unbounded" minOccurs="0" name="string" nillable="true" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStockQuotesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="GetStockQuotesResult" type="tns:BulkStockQuoteOutput"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BulkStockQuoteOutput">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SIWsOutput">
+            <s:sequence>
+              <s:element maxOccurs="1" minOccurs="0" name="ServiceResult" type="tns:BulkStockQuoteResult"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BulkStockQuoteResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SIWsResult">
+            <s:sequence>
+              <s:element maxOccurs="1" minOccurs="0" name="Records" type="tns:ArrayOfStockQuoteRecord"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SIWsResult">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="Count" type="s:int"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfStockQuoteRecord">
+        <s:sequence>
+          <s:element maxOccurs="unbounded" minOccurs="0" name="StockQuoteRecord" nillable="true" type="tns:StockQuoteRecord"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSymbolDirectory">
+        <s:complexType/>
+      </s:element>
+      <s:element name="GetSymbolDirectoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="GetSymbolDirectoryResult" type="tns:SymbolDirectoryOutput"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SymbolDirectoryOutput">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SIWsOutput">
+            <s:sequence>
+              <s:element maxOccurs="1" minOccurs="0" name="ServiceResult" type="tns:SymbolDirectoryResult"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SymbolDirectoryResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SIWsResult">
+            <s:sequence>
+              <s:element maxOccurs="1" minOccurs="0" name="Records" type="tns:ArrayOfSymbolDirectoryRecord"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfSymbolDirectoryRecord">
+        <s:sequence>
+          <s:element maxOccurs="unbounded" minOccurs="0" name="SymbolDirectoryRecord" nillable="true" type="tns:SymbolDirectoryRecord"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SymbolDirectoryRecord">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="0" name="Ticker" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="CompanyName" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Exchange" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllStatuses">
+        <s:complexType/>
+      </s:element>
+      <s:element name="GetAllStatusesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="GetAllStatusesResult" type="tns:StatusCodeOutput"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="StatusCodeOutput">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SIWsOutput">
+            <s:sequence>
+              <s:element maxOccurs="1" minOccurs="0" name="ServiceResult" type="tns:StatusCodeResult"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="StatusCodeResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SIWsResult">
+            <s:sequence>
+              <s:element maxOccurs="1" minOccurs="0" name="Statuses" type="tns:ArrayOfSIWsStatus"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfSIWsStatus">
+        <s:sequence>
+          <s:element maxOccurs="unbounded" minOccurs="0" name="SIWsStatus" nillable="true" type="tns:SIWsStatus"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetServiceInfo">
+        <s:complexType/>
+      </s:element>
+      <s:element name="GetServiceInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="GetServiceInfoResult" type="tns:ServiceInfoOutput"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceInfoOutput">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SIWsOutput">
+            <s:sequence>
+              <s:element maxOccurs="1" minOccurs="0" name="ServiceResult" type="tns:SIServiceInfoResult"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SIServiceInfoResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SIWsResult">
+            <s:sequence>
+              <s:element maxOccurs="1" minOccurs="0" name="ServiceInfo" type="tns:ArrayOfServiceInfoRecord"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfServiceInfoRecord">
+        <s:sequence>
+          <s:element maxOccurs="unbounded" minOccurs="0" name="ServiceInfoRecord" nillable="true" type="tns:ServiceInfoRecord"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ServiceInfoRecord">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="0" name="InfoKey" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="InfoValue" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="StockQuoteOutput" nillable="true" type="tns:StockQuoteOutput"/>
+      <s:element name="BulkStockQuoteOutput" nillable="true" type="tns:BulkStockQuoteOutput"/>
+      <s:element name="SymbolDirectoryOutput" nillable="true" type="tns:SymbolDirectoryOutput"/>
+      <s:element name="StatusCodeOutput" nillable="true" type="tns:StatusCodeOutput"/>
+      <s:element name="ServiceInfoOutput" nillable="true" type="tns:ServiceInfoOutput"/>
+    </s:schema>
+    <s:schema targetNamespace="http://www.strikeiron.com/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element maxOccurs="unbounded" minOccurs="0" name="String" type="s:string"/>
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+    <xs:schema xmlns:tns1="http://ws.strikeiron.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.strikeiron.com">
+      <xs:element name="LicenseInfo" type="tns1:LicenseInfo"/>
+      <xs:complexType name="LicenseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RegisteredUser" type="tns1:RegisteredUser"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RegisteredUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserID" type="xs:string"/>
+          <xs:element minOccurs="0" name="Password" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SubscriptionInfo" type="tns1:SubscriptionInfo"/>
+      <xs:complexType name="SubscriptionInfo">
+        <xs:sequence>
+          <xs:element name="LicenseStatusCode" type="xs:int"/>
+          <xs:element minOccurs="0" name="LicenseStatus" type="xs:string"/>
+          <xs:element name="LicenseActionCode" type="xs:int"/>
+          <xs:element minOccurs="0" name="LicenseAction" type="xs:string"/>
+          <xs:element name="RemainingHits" type="xs:int"/>
+          <xs:element name="Amount" type="xs:decimal"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetRemainingHits">
+        <xs:complexType/>
+      </xs:element>
+      <xs:element name="GetRemainingHitsResponse">
+        <xs:complexType/>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSymbolDirectoryHttpPostIn">
+  </wsdl:message>
+  <wsdl:message name="GetServiceInfoSoapOut">
+    <wsdl:part element="tns:GetServiceInfoResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetAllStatusesHttpPostOut">
+    <wsdl:part element="tns:StatusCodeOutput" name="Body">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetAllStatusesHttpGetIn">
+  </wsdl:message>
+  <wsdl:message name="GetServiceInfoHttpPostOut">
+    <wsdl:part element="tns:ServiceInfoOutput" name="Body">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetServiceInfoSoapIn">
+    <wsdl:part element="tns:GetServiceInfo" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetStockQuotesHttpPostIn">
+    <wsdl:part name="Tickers" type="s1:StringArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetAllStatusesHttpPostIn">
+  </wsdl:message>
+  <wsdl:message name="GetStockQuoteHttpPostIn">
+    <wsdl:part name="SingleTicker" type="s:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetRemainingHitsSoapIn">
+    <wsdl:part element="q1:GetRemainingHits" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SubscriptionInfoMessage">
+    <wsdl:part element="q1:SubscriptionInfo" name="SubscriptionInfo">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="LicenseInfoMessage">
+    <wsdl:part element="q1:LicenseInfo" name="LicenseInfo">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetStockQuoteHttpGetIn">
+    <wsdl:part name="SingleTicker" type="s:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetServiceInfoHttpPostIn">
+  </wsdl:message>
+  <wsdl:message name="GetServiceInfoHttpGetOut">
+    <wsdl:part element="tns:ServiceInfoOutput" name="Body">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetStockQuoteHttpPostOut">
+    <wsdl:part element="tns:StockQuoteOutput" name="Body">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetStockQuotesSoapOut">
+    <wsdl:part element="tns:GetStockQuotesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetStockQuoteSoapOut">
+    <wsdl:part element="tns:GetStockQuoteResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetStockQuotesSoapIn">
+    <wsdl:part element="tns:GetStockQuotes" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetRemainingHitsSoapOut">
+    <wsdl:part element="q1:GetRemainingHitsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetServiceInfoHttpGetIn">
+  </wsdl:message>
+  <wsdl:message name="GetSymbolDirectoryHttpGetIn">
+  </wsdl:message>
+  <wsdl:message name="GetAllStatusesHttpGetOut">
+    <wsdl:part element="tns:StatusCodeOutput" name="Body">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetSymbolDirectorySoapOut">
+    <wsdl:part element="tns:GetSymbolDirectoryResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetSymbolDirectorySoapIn">
+    <wsdl:part element="tns:GetSymbolDirectory" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetStockQuotesHttpPostOut">
+    <wsdl:part element="tns:BulkStockQuoteOutput" name="Body">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetSymbolDirectoryHttpPostOut">
+    <wsdl:part element="tns:SymbolDirectoryOutput" name="Body">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetAllStatusesSoapOut">
+    <wsdl:part element="tns:GetAllStatusesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetAllStatusesSoapIn">
+    <wsdl:part element="tns:GetAllStatuses" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetStockQuotesHttpGetOut">
+    <wsdl:part element="tns:BulkStockQuoteOutput" name="Body">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetStockQuoteSoapIn">
+    <wsdl:part element="tns:GetStockQuote" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetStockQuoteHttpGetOut">
+    <wsdl:part element="tns:StockQuoteOutput" name="Body">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetStockQuotesHttpGetIn">
+    <wsdl:part name="Tickers" type="s1:StringArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetSymbolDirectoryHttpGetOut">
+    <wsdl:part element="tns:SymbolDirectoryOutput" name="Body">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SIRealTimeNasdaqStockQuotesSoap">
+    <wsdl:operation name="GetStockQuote">
+      <wsdl:input message="tns:GetStockQuoteSoapIn">
+    </wsdl:input>
+      <wsdl:output message="tns:GetStockQuoteSoapOut">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStockQuotes">
+      <wsdl:input message="tns:GetStockQuotesSoapIn">
+    </wsdl:input>
+      <wsdl:output message="tns:GetStockQuotesSoapOut">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSymbolDirectory">
+      <wsdl:input message="tns:GetSymbolDirectorySoapIn">
+    </wsdl:input>
+      <wsdl:output message="tns:GetSymbolDirectorySoapOut">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStatuses">
+<documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Get all statuses this service might return</documentation>
+      <wsdl:input message="tns:GetAllStatusesSoapIn">
+    </wsdl:input>
+      <wsdl:output message="tns:GetAllStatusesSoapOut">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceInfo">
+<documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Get information about the web service</documentation>
+      <wsdl:input message="tns:GetServiceInfoSoapIn">
+    </wsdl:input>
+      <wsdl:output message="tns:GetServiceInfoSoapOut">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRemainingHits">
+      <wsdl:input message="tns:GetRemainingHitsSoapIn">
+    </wsdl:input>
+      <wsdl:output message="tns:GetRemainingHitsSoapOut">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SIRealTimeNasdaqStockQuotesSoap" type="tns:SIRealTimeNasdaqStockQuotesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetStockQuote">
+      <soap:operation soapAction="http://www.strikeiron.com/GetStockQuote" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:LicenseInfoMessage" part="LicenseInfo" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:header message="tns:SubscriptionInfoMessage" part="SubscriptionInfo" use="literal">
+        </soap:header>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStockQuotes">
+      <soap:operation soapAction="http://www.strikeiron.com/GetStockQuotes" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:LicenseInfoMessage" part="LicenseInfo" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:header message="tns:SubscriptionInfoMessage" part="SubscriptionInfo" use="literal">
+        </soap:header>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSymbolDirectory">
+      <soap:operation soapAction="http://www.strikeiron.com/GetSymbolDirectory" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:LicenseInfoMessage" part="LicenseInfo" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:header message="tns:SubscriptionInfoMessage" part="SubscriptionInfo" use="literal">
+        </soap:header>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStatuses">
+      <soap:operation soapAction="http://www.strikeiron.com/GetAllStatuses" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:LicenseInfoMessage" part="LicenseInfo" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:header message="tns:SubscriptionInfoMessage" part="SubscriptionInfo" use="literal">
+        </soap:header>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceInfo">
+      <soap:operation soapAction="http://www.strikeiron.com/GetServiceInfo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:LicenseInfoMessage" part="LicenseInfo" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:header message="tns:SubscriptionInfoMessage" part="SubscriptionInfo" use="literal">
+        </soap:header>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRemainingHits">
+      <soap:operation soapAction="http://ws.strikeiron.com/StrikeIron/RealTimeNASDAQStockQuotes/SIRealTimeNasdaqStockQuotes/GetRemainingHits"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:LicenseInfoMessage" part="LicenseInfo" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+        <soap:header message="tns:SubscriptionInfoMessage" part="SubscriptionInfo" use="literal">
+        </soap:header>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SIRealTimeNasdaqStockQuotes">
+    <wsdl:port binding="tns:SIRealTimeNasdaqStockQuotesSoap" name="SIRealTimeNasdaqStockQuotesSoap">
+      <soap:address location="http://ws.strikeiron.com/StrikeIron/RealTimeNASDAQStockQuotes/SIRealTimeNasdaqStockQuotes"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

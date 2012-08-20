@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.flexonjava.exmples.mycrm</groupId>
+	<artifactId>mycrm-parent</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>FlexOnJava Example MyCRM</name>
+
+	<organization>
+		<name>FlexOnJava</name>
+		<url>www.flexonjava.net</url>
+	</organization>
+
+	<properties>
+		<spring.version>3.0.0.RELEASE</spring.version>
+		<assembly>${project.build.directory}/</assembly>
+		<assembly.root>${assembly}</assembly.root>
+		<effective.assembly.root>${assembly.root}</effective.assembly.root>
+            <outputDirectory>${basedir}/target</outputDirectory>
+	</properties>
+
+	<modules>
+		<module>../mycrm-core</module>
+		<module>../mycrm-flex-domain</module>
+	</modules>
+	
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.5</source>
+						<target>1.5</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.jvnet.maven-antrun-extended-plugin</groupId>
+					<artifactId>maven-antrun-extended-plugin</artifactId>
+					<version>1.32</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.apache.ant</groupId>
+							<artifactId>ant</artifactId>
+							<version>1.7.0</version>
+						</dependency>
+						<dependency>
+							<groupId>org.apache.ant</groupId>
+							<artifactId>ant-apache-regexp</artifactId>
+							<version>1.7.0</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>2.1</version>
+				</plugin>
+			</plugins>
+		</pluginManagement> 
+	</build>
+</project>

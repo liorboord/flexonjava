@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectRoot>
+<url value="http://www.holidaywebservice.com/Holidays/HolidayService.asmx?wsdl">
+<service name="HolidayService">
+<port name="HolidayServiceSoap">
+<operations>
+<operation name="GetCountriesAvailable(parameters: GetCountriesAvailable): GetCountriesAvailableResponse"/>
+<operation name="GetHolidaysAvailable(parameters: GetHolidaysAvailable): GetHolidaysAvailableResponse"/>
+<operation name="GetHolidayDate(parameters: GetHolidayDate): GetHolidayDateResponse"/>
+<operation name="GetHolidaysForYear(parameters: GetHolidaysForYear): GetHolidaysForYearResponse"/>
+<operation name="GetHolidaysForMonth(parameters: GetHolidaysForMonth): GetHolidaysForMonthResponse"/>
+<operation name="GetHolidaysForDateRange(parameters: GetHolidaysForDateRange): GetHolidaysForDateRangeResponse"/>
+</operations>
+</port>
+</service>
+<asPackage absPath="C:\workspace\holiday-info\src\com\holidaywebservice" name="com.holidaywebservice">
+<mainAsClass name="HolidayService.as"/>
+<otherAsClass name="GetHolidaysAvailableResult_type0.as"/>
+<otherAsClass name="DataSet.as"/>
+<otherAsClass name="BaseHolidayService.as"/>
+<otherAsClass name="GetHolidayDateResultEvent.as"/>
+<otherAsClass name="DateTime.as"/>
+<otherAsClass name="IHolidayService.as"/>
+<otherAsClass name="GetHolidaysForMonthResultEvent.as"/>
+<otherAsClass name="GetHolidaysForMonthResult_type0.as"/>
+<otherAsClass name="GetCountriesAvailable_request.as"/>
+<otherAsClass name="GetHolidaysForDateRangeResult_type0.as"/>
+<otherAsClass name="GetHolidaysAvailableResultEvent.as"/>
+<otherAsClass name="GetHolidaysForYearResultEvent.as"/>
+<otherAsClass name="GetHolidaysForDateRangeResultEvent.as"/>
+<otherAsClass name="GetHolidaysForYear_request.as"/>
+<otherAsClass name="GetHolidaysForDateRange_request.as"/>
+<otherAsClass name="GetHolidayDate_request.as"/>
+<otherAsClass name="GetCountriesAvailableResultEvent.as"/>
+<otherAsClass name="GetHolidaysForYearResult_type0.as"/>
+<otherAsClass name="BaseHolidayServiceSchema.as"/>
+<otherAsClass name="GetHolidaysForMonth_request.as"/>
+<otherAsClass name="GetCountriesAvailableResult_type0.as"/>
+<otherAsClass name="GetHolidaysAvailable_request.as"/>
+</asPackage>
+</url>
+<url value="http://service.ecocoma.com/marketing/google.asmx?WSDL">
+<service name="Google_Service">
+<port name="Google_ServiceSoap">
+<operations>
+<operation name="GetSiteCount(parameters: GetSiteCount): GetSiteCountResponse"/>
+<operation name="GetLinkCount(parameters: GetLinkCount): GetLinkCountResponse"/>
+<operation name="GetRelatedCount(parameters: GetRelatedCount): GetRelatedCountResponse"/>
+<operation name="GetKeywordRankding(parameters: GetKeywordRankding): GetKeywordRankdingResponse"/>
+<operation name="GetKeywordSuggest(parameters: GetKeywordSuggest): GetKeywordSuggestResponse"/>
+</operations>
+</port>
+</service>
+<asPackage absPath="C:\workspace\holiday-info\src\com\ecocoma" name="com.ecocoma">
+<mainAsClass name="Google_Service.as"/>
+<otherAsClass name="BaseGoogle_Service.as"/>
+<otherAsClass name="IGoogle_Service.as"/>
+<otherAsClass name="GoogleKeywordRanking.as"/>
+<otherAsClass name="GetLinkCount_request.as"/>
+<otherAsClass name="BaseGoogle_ServiceSchema.as"/>
+<otherAsClass name="GetKeywordRankdingResultEvent.as"/>
+<otherAsClass name="GetKeywordSuggest_request.as"/>
+<otherAsClass name="GetSiteCountResultEvent.as"/>
+<otherAsClass name="GoogleKeywordSuggest.as"/>
+<otherAsClass name="GetKeywordRankding_request.as"/>
+<otherAsClass name="GoogleCount.as"/>
+<otherAsClass name="GetLinkCountResultEvent.as"/>
+<otherAsClass name="GetSiteCount_request.as"/>
+<otherAsClass name="GetRelatedCountResultEvent.as"/>
+<otherAsClass name="GetKeywordSuggestResultEvent.as"/>
+<otherAsClass name="GetRelatedCount_request.as"/>
+</asPackage>
+</url>
+<url value="http://ws.strikeiron.com/RealTimeNASDAQStockQuotes?WSDL">
+<service name="SIRealTimeNasdaqStockQuotes">
+<port name="SIRealTimeNasdaqStockQuotesSoap">
+<operations>
+<operation name="GetStockQuote(parameters: GetStockQuote): GetStockQuoteResponse"/>
+<operation name="GetStockQuotes(parameters: GetStockQuotes): GetStockQuotesResponse"/>
+<operation name="GetSymbolDirectory(parameters: GetSymbolDirectory): GetSymbolDirectoryResponse"/>
+<operation name="GetAllStatuses(parameters: GetAllStatuses): GetAllStatusesResponse"/>
+<operation name="GetServiceInfo(parameters: GetServiceInfo): GetServiceInfoResponse"/>
+<operation name="GetRemainingHits(parameters: GetRemainingHits): GetRemainingHitsResponse"/>
+</operations>
+</port>
+</service>
+<asPackage absPath="C:\workspace\holiday-info\src\com\strikeiron" name="com.strikeiron">
+<mainAsClass name="SIRealTimeNasdaqStockQuotes.as"/>
+<otherAsClass name="BaseSIRealTimeNasdaqStockQuotes.as"/>
+<otherAsClass name="SymbolDirectoryRecord.as"/>
+<otherAsClass name="SIWsStatus.as"/>
+<otherAsClass name="GetServiceInfo_request.as"/>
+<otherAsClass name="StockQuoteRecord.as"/>
+<otherAsClass name="GetSymbolDirectory_request.as"/>
+<otherAsClass name="StringArray.as"/>
+<otherAsClass name="ISIRealTimeNasdaqStockQuotes.as"/>
+<otherAsClass name="GetStockQuotes_request.as"/>
+<otherAsClass name="SIServiceInfoResult.as"/>
+<otherAsClass name="GetSymbolDirectoryResultEvent.as"/>
+<otherAsClass name="ServiceInfoOutput.as"/>
+<otherAsClass name="GetRemainingHits_request.as"/>
+<otherAsClass name="SymbolDirectoryOutput.as"/>
+<otherAsClass name="StockQuoteOutput.as"/>
+<otherAsClass name="ServiceInfoOutput0.as"/>
+<otherAsClass name="ServiceInfoRecord.as"/>
+<otherAsClass name="ArrayOfSIWsStatus.as"/>
+<otherAsClass name="GetRemainingHitsResultEvent.as"/>
+<otherAsClass name="SIWsResult.as"/>
+<otherAsClass name="LicenseInfo.as"/>
+<otherAsClass name="SubscriptionInfo0.as"/>
+<otherAsClass name="SymbolDirectoryResult.as"/>
+<otherAsClass name="SubscriptionInfo.as"/>
+<otherAsClass name="StockQuoteOutput0.as"/>
+<otherAsClass name="BaseSIRealTimeNasdaqStockQuotesSchema.as"/>
+<otherAsClass name="GetAllStatuses_request.as"/>
+<otherAsClass name="RegisteredUser.as"/>
+<otherAsClass name="GetAllStatusesResultEvent.as"/>
+<otherAsClass name="ArrayOfServiceInfoRecord.as"/>
+<otherAsClass name="BulkStockQuoteOutput.as"/>
+<otherAsClass name="ArrayOfStockQuoteRecord.as"/>
+<otherAsClass name="LicenseInfo0.as"/>
+<otherAsClass name="StatusCodeResult.as"/>
+<otherAsClass name="SymbolDirectoryOutput0.as"/>
+<otherAsClass name="BulkStockQuoteResult.as"/>
+<otherAsClass name="GetServiceInfoResultEvent.as"/>
+<otherAsClass name="StatusCodeOutput.as"/>
+<otherAsClass name="GetStockQuote_request.as"/>
+<otherAsClass name="GetStockQuotesResultEvent.as"/>
+<otherAsClass name="BulkStockQuoteOutput0.as"/>
+<otherAsClass name="SIWsOutput.as"/>
+<otherAsClass name="ArrayOfSymbolDirectoryRecord.as"/>
+<otherAsClass name="GetStockQuoteResultEvent.as"/>
+<otherAsClass name="ArrayOfString.as"/>
+<otherAsClass name="StatusCodeOutput0.as"/>
+</asPackage>
+</url>
+<url value="http://www.webservicex.net/globalweather.asmx?WSDL">
+<service name="GlobalWeather">
+<port name="GlobalWeatherSoap">
+<operations>
+<operation name="GetWeather(parameters: GetWeather): GetWeatherResponse"/>
+<operation name="GetCitiesByCountry(parameters: GetCitiesByCountry): GetCitiesByCountryResponse"/>
+</operations>
+</port>
+</service>
+<asPackage absPath="C:\workspace\holiday-info\src\net\webservicex" name="net.webservicex">
+<mainAsClass name="GlobalWeather.as"/>
+<otherAsClass name="GetWeather_request.as"/>
+<otherAsClass name="BaseGlobalWeatherSchema.as"/>
+<otherAsClass name="BaseGlobalWeather.as"/>
+<otherAsClass name="String.as"/>
+<otherAsClass name="GetCitiesByCountry_request.as"/>
+<otherAsClass name="IGlobalWeather.as"/>
+<otherAsClass name="GetWeatherResultEvent.as"/>
+<otherAsClass name="GetCitiesByCountryResultEvent.as"/>
+</asPackage>
+</url>
+</projectRoot>

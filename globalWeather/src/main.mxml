@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" creationComplete="init()"
+	xmlns:business="sample.business.*">
+	<business:Services id="services"/>
+	<mx:Script>
+		<![CDATA[
+			import com.adobe.cairngorm.control.CairngormEventDispatcher;
+			import sample.command.GetCitiesByCountryCommand;
+			import sample.event.GetCitiesByCountryEvent;
+			import sample.command.GetWeatherCommand;
+			import sample.event.GetWeatherEvent;
+			import com.adobe.cairngorm.control.FrontController;
+			import sample.model.GlobalWeatherModelLocator;
+			private function init():void
+			{
+				var f:FrontController = new FrontController();
+				f.addCommand(GetWeatherEvent.GET_WEATHER,GetWeatherCommand);
+				f.addCommand(GetCitiesByCountryEvent.GET_CITIES_BY_COUNTRY,GetCitiesByCountryCommand);
+				
+				var e:GetCitiesByCountryEvent = new GetCitiesByCountryEvent("israel");
+				CairngormEventDispatcher.getInstance().dispatchEvent(e);
+			}
+		]]>
+	</mx:Script>
+	<mx:VBox>
+		<mx:Label text="Waiting for a respond" color="red" 
+			visible="{Boolean(GlobalWeatherModelLocator.getInstance().workflowstate == GlobalWeatherModelLocator.WAITING_WAITING_FOR_SERVICE_RESPONSE)}"/>
+		<mx:TextArea width="400" height="400" editable="false" text="{GlobalWeatherModelLocator.getInstance().cities}"/>
+	</mx:VBox>
+</mx:Application>
